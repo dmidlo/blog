@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+
+    <script type="module">
+        import {React, ReactDOM} from 'https://unpkg.com/es-react@16.13.1'
+        import htm from 'https://unpkg.com/htm?module'
+
+        const html = htm.bind(React.createElement)
+        // ReactDOM.render(html` <h1>Hello Dave</h1> `, document.body)
+
+        const Posts = (props) => {
+            return html` <div>These will be your posts</div>`
+        }
+        ReactDOM.render(html` <${Posts} />`, document.body)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
