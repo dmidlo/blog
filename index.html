@@ -12,6 +12,13 @@
         import { endpoint } from 'https://cdn.skypack.dev/@octokit/endpoint'
         import marked from 'https://unpkg.com/marked@2.0.0/lib/marked.esm.js'
 
+        // the original source for this code recommended creating a non-scoped
+        // "read-only" personal access token for github.  Pure nonsense!!!
+        // public repos on github are read-only by default.  whoever came up with that
+        // was depending too much on the octokit/endpoint documentation.  to still use
+        // octokit without granting read-only access to all your private repos by exposing
+        // a token in the html of your site... simply put any old string into endpoint's
+        // auth parameter.
         const TOKEN = "x"
 
         const html = htm.bind(React.createElement)
