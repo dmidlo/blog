@@ -16,9 +16,8 @@
         marked.setOptions({
               renderer: new marked.Renderer(),
               highlight: function(code, lang) {
-                const hljs = require('highlight.js');
-                const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-                return hljs.highlight(code, { language }).value;
+                const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+                return hljs.highlight(code, { language }).value
               },
               langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
               pedantic: false,
@@ -28,7 +27,7 @@
               smartLists: true,
               smartypants: false,
               xhtml: false
-            });
+            })
 
         // the original source for this code recommended creating a non-scoped
         // "read-only" personal access token for github.  Pure nonsense!!!
