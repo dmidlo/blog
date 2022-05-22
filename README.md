@@ -7,3 +7,6 @@ https://dmidlo.github.io/blog/
 
 you can browse the posts and comment on them here:
 https://github.com/dmidlo/blog/issues
+
+the actual code is on the gh-pages branch:
+https://github.com/dmidlo/blog/tree/gh-pages
