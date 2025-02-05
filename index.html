@@ -91,12 +91,12 @@
                     .filter(({number}) => !search || Number(search.slice(1)) === number )
                     .map(({number, title, body}) => {
                     return html`
-                        <div id=${number} key=${number}>
+                        <section id=${number} key=${number}>
                             <h2>
                                 <a href="?${number}"> ${title} </a>
                             </h2>
                             <div dangerouslySetInnerHTML="${{__html: marked(body)}}" />
-                        </div>
+                        </section>
                     `
                 })}
             `
