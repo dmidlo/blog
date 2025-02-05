@@ -33,6 +33,8 @@
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.1.0/mermaid.min.js"></script>
+
 
     <script type="module">
         import {React, ReactDOM} from 'https://unpkg.com/es-react@16.13.1'
@@ -78,6 +80,9 @@
                     if (window.MathJax) {
                         window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub])
                     }
+
+                    //Process Mermaid
+                    mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
                 }
                 fetchIssues()
             }, [])
