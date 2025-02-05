@@ -81,11 +81,25 @@
                         window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub])
                     }
 
-                    //Process Mermaid
-                    mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+                    // Ensure Mermaid is initialized after React updates the DOM
+                    setTimeout(() => {
+                        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                    }, 500);
                 }
                 fetchIssues()
             }, [])
+
+            // Configure Marked to handle Mermaid syntax
+            marked.use({
+                renderer: {
+                    code(code, lang) {
+                        if (lang === "mermaid") {
+                            return `<pre class="mermaid">${code}</pre>`;
+                        }
+                        return `<pre><code>${code}</code></pre>`;
+                    }
+                }
+            });
 
 
             // Render issues as posts
