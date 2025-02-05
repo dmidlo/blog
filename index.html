@@ -24,6 +24,7 @@
 
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
+        TeX: { extensions: ["AMSmath.js", "AMSsymbols.js", "mhchem.js", "physics.js", "color.js", "bbox.js", "boldsymbol.js", "newcommand.js", "textmacros.js", "cancel.js", "action.js", "HTML.js", "noErrors.js", "noUndefined.js", "autoload-all.js"] },
         tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
         processEscapes: true
@@ -80,26 +81,10 @@
                     if (window.MathJax) {
                         window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub])
                     }
-
-                    // Ensure Mermaid is initialized after React updates the DOM
-                    setTimeout(() => {
-                        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-                    }, 500);
                 }
                 fetchIssues()
             }, [])
 
-            // Configure Marked to handle Mermaid syntax
-            marked.use({
-                renderer: {
-                    code(code, lang) {
-                        if (lang === "mermaid") {
-                            return `<pre class="mermaid">${code}</pre>`;
-                        }
-                        return `<pre><code>${code}</code></pre>`;
-                    }
-                }
-            });
 
 
             // Render issues as posts
